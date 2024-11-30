@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="js/subida_equivalencias.js" type="text/javascript"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   </head>
+   <body>
+      <form id="equivalencias">
+         <div class="card-header">
+            <!-- <h2 class="card-title form-check-label">Carga de Equivalencias</h2> -->
+			
+			<p  class="text-muted mb-1"><a href="principal.php">Principal</a> / Carga de Equivalencias</p>
+         </div>
+         <div class="card-header">
+        <h2 class="card-title">*.- Si necesitas ayuda Consulta el <a href="manuales/Equivalancia de Codigos.docx" target="_blank">Manual de Subidas Equivalencias</a></h2>
+		</div>
+         <br>
+         <div class="row">
+            <div class="col-md-6">
+               <div class="card-body">
+                  <div class="card card-Olive">
+                     <div class="card-header">
+                        <h3 class="card-title">Ingreso de Planilla Equivalencia</h3>
+                     </div>
+                     <div class="card-body">
+                        <div class="row">
+                           <label class="col-sm-2 form-check-label" for="notcmb_tienda">Archivo:</label>   
+                           <div class="col-sm-7">
+                              <div class="input-group">
+                                 <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="file_cventas">
+                                    <label class="custom-file-label" for="file_cventas">Subida</label>
+                                 </div>
+                                 <!-- <div class="input-group-append"> -->
+                                 <!-- <span class="input-group-text">Upload</span> -->
+                                 <!-- </div> -->
+                              </div>
+                           </div>
+                        </div>
+                        <br>
+                        <div class="col-xs-4">
+                           <button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>
+                           <button type="button" class="btn btn-primary" id="btn_guardar">Subir Planilla</button>
+                           <a class="btn btn-secondary" href="archivos_subidos/base archivo.xlsx">&#128229; Base</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--<div class="row">-->
+               <div class="col-md-6">
+                  <div class="card-body">
+                     <div class="card card-Info">
+                        <div class="card-header">
+                           <h3 class="card-title">Descarga de Informacion</h3>
+                        </div>
+                        <div class="card-body">
+                           <div class="row">
+                              <label class="col-sm-2 form-check-label" for="notcmb_tienda">Canal:</label>   
+                              <div class="col-sm-6">
+                                 <div class="input-group">
+                                    <select class="form-control input-sm border-info" id="canal_descarga" name="canal_descarga">
+                                       <option value="">-- SELECCIONES CANAL --</option>
+                                       <option value="todos">TODOS</option>
+                                       <option value="4001">FALABELLA</option>
+                                       <option value="4002">PARIS</option>
+                                       <option value="4003">RIPLEY</option>
+                                       <option value="4101">LA POLAR</option>
+                                       <option value="4109">HITES</option>
+                                       <option value="4109">TRICOT</option>
+                                       <option value="4301">JUMBO</option>
+                                       <option value="4302">WALMART</option>
+                                       <option value="4304">TOTTUS</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                           <br>
+                           <div class="col-xs-4">
+                              <!--<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>-->
+                              <button type="button" class="btn btn-info" id="descarga_info"> <i class='fas fa-file-excel'></i> Descargar</button>
+                              <!--<a class="btn btn-secondary" href="archivos_subidos/exportar_base.php" role="button">&#128229; Base</a>-->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            <!--</div>-->
+         </div>
+         <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+            <div class="card card-info">
+               <div class="card-header">
+                  <h3 class="card-title">Ingreso de Equivalencias</h3>
+               </div>
+               <div class="card-body">
+                  <div class="row">
+                     <label class="col-sm-1 form-check-label text-info">Cliente:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <select class="form-control input-sm border-info" id="canal_1" name="canal_1">
+                              <option value="">-- SELECCIONES CANAL --</option>
+                              <option value="4001">FALABELLA</option>
+                              <option value="4002">PARIS</option>
+                              <option value="4003">RIPLEY</option>
+                              <option value="4101">LA POLAR</option>
+                              <option value="4109">HITES</option>
+                              <option value="4109">TRICOT</option>
+                                       <option value="4301">JUMBO</option>
+                                       <option value="4302">WALMART</option>
+                                       <option value="4304">TOTTUS</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <label class="col-sm-1 form-check-label text-info">Cod.MCH:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="cod_mch_1" name="cod_mch_1"/>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">SKU Cliente:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="sku_cliente_1" name="sku_cliente_1"/>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">Barra Cli.:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="barra_cliente_1" name="barra_cliente_1"/>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class='row'>
+                     <label class="col-sm-1 form-check-label text-info">Descr. Cli.:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="descr_cliente_1" name="descr_cliente_1"/>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">Prc. Venta:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="precio_venta_1" name="precio_venta_1"/>
+                           <input type="hidden" class="form-control input-sm border border-info" id="recno" name="recno"/>
+                        </div>
+                     </div>
+                  </div>
+                  <br><br>
+                  <div class="col-xs-4">
+                     <button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>
+                     <button type="button" class="btn btn-primary" id="btn_guardar_1">Guardar Cambios</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="mensajes"></div>
+         <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+            <div class="card card-Lightblue">
+               <div class="card-header">
+                  <h2 class="card-title"><strong>Panillas Subidas</strong></h2>
+               </div>
+               <br>
+               <div class="row">
+                  <div class="col-md-3">
+                     <select class="form-control input-sm requerido" required id="canal" name="canal">
+                        <option value="">-- SELECCIONES CANAL --</option>
+                        <option value="4001">FALABELLA</option>
+                        <option value="4002">PARIS</option>
+                        <option value="4003">RIPLEY</option>
+                        <option value="4101">LA POLAR</option>
+                        <option value="4109">HITES</option>
+                        <option value="4109">TRICOT</option>
+                                       <option value="4301">JUMBO</option>
+                                       <option value="4302">WALMART</option>
+                                       <option value="4304">TOTTUS</option>
+                     </select>
+                  </div>
+                  <br>					                    
+                  <div class="col-md-2">
+                     <div class="input-group">
+                        <input type="text" class="form-control input-sm requerido" id="cod_monarch" name="cod_monarch" placeholder="Codigo Monarch"/>
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <button type="button" class="btn btn-primary" id="btn_buscar">Buscar</button>
+                  </div>
+               </div>
+               <div class="card-body">
+                  <table id="tbl_articulos" class='table table-bordered table-striped table-sm dataTable dtr-inline'>
+                     <thead>
+                        <tr>
+                           <th>#</th>
+                           <th>Canal</th>
+                           <th>Cod. Monach</th>
+                           <th>Barra Monarch</th>
+                           <th>Sku Cliente</th>
+                           <th>Barra Cliente</th>
+                           <th>Precio venta</th>
+                           <th>Editar</th>
+                           <th>Borrar</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <!--AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </form>
+      <script>
+         $(function () {
+           bsCustomFileInput.init();
+         });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,148 @@
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="js/modulo_reporte.js" type="text/javascript"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js"></script>
+</head>
+
+<body>
+     
+    <form id="frm_usuario" name="frm_usuario">
+		<div class="card-header">
+        <h2 class="card-title form-check-label">Informe Distribucion</h2>
+		</div><br>
+        <!-- Fila 1 -->
+<!--      <div>-->
+<!--			Indica la cantidad que puedes seleccinar: <input type="text" id="cantidad" value="0">-->
+<!--		</div>-->
+        <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+       		<div class="card card-Olive">
+                <div class="card-header">
+                  <h3 class="card-title">Formulario de Busqueda</h3>
+                </div>
+                <div class="card-body">
+                        <div class="row">
+                        <label class="col-sm-1 form-check-label" for="notcmb_tienda">Canal*:</label>                
+                            <div class="col-sm-3">
+                                <div class="input-group">           
+                                    <select class="form-control input-sm" id="canal" name="canal">
+                                        <option value="">-- SELECCIONE --</option>                                        
+                                        <option value="0">TODOS</option>                                        
+                                        <option value="4001">FALABELLA</option>                                        
+                                        <option value="4002">PARIS</option>                                        
+                                        <option value="4003">RIPLEY</option>                                        
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div><br>
+                        <div class="row">
+                            <label class="col-sm-1 form-check-label">Fec.Inicio*:</label>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                        <div class="input-group date" id="reservationdate1" data-target-input="nearest">
+                                        <input type="text" id="fec_ini" name="fec_ini" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="Ingrese Fecha Inicial"/>
+                                        <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                        </div>
+                                </div>
+                        </div>
+                            <label class="col-sm-1 form-check-label">Fec.Fin*:</label>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="input-group date" id="reservationdate2" data-target-input="nearest">
+                                        <input type="text" id="fec_fin" name="fec_fin" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder="Ingrese Fecha Inicial"/>
+                                        <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-1 form-check-label" for="notcmb_tienda">Cod. Monarch:</label>           
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm border border-info" id="cod_monarch" name="cod_monarch" />
+                                </div>
+                            </div>
+                        </div><br>
+                        
+                        <button type="button" id="buscar" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+            
+            <div id="mensajes">
+                
+            </div>
+
+
+              <!-- TABLA PARA AGREGAR ASIGNACIONES -->
+            <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+                <div class="card card-Lightblue">
+                    <div class="card-header">
+                        <h3 class="card-title">Reporte  : <label id="fechas"></label></h3><br>
+                    </div>
+                  <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="justify-content-end" id="descargas" style="float: right;" >
+                            <a class=" btn btn-secondary btn-sm" id="download_xls" href="#">Descargar Excel</a>
+                            <a class="btn btn-outline-success btn-sm" id="download_csv" href="#">Descargar CSV</a>
+                            <a class="btn btn-outline-info btn-sm" id="download_xlsx" href="#">Descargar XLSX</a>
+                         </div><br>
+                         <div class='input-group'>
+                            <span class='input-group-addon'><i class="glyphicon glyphicon-search"></i></span>
+                            <input id='search' name='search' type='text' class='form-control input-sm' placeholder='Ingrese dato a buscar...' style="width: 100px;">
+                         </div>
+                        <table class='table table-bordered table-striped table-sm dataTable dtr-inline' id="tbl_reporte" >		
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Canal</th>
+                                    <th>Orden de Compra</th>
+                                    <th>Local</th>
+                                    <th>Articulo</th>
+                                    <th>Descripcion</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <!--AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>	 
+    </form>
+    <script>
+        // Write on keyup event of keyword input element
+        $(document).ready(function(){
+        $("#search").keyup(function(){
+        _this = this;
+        // Show only matching TR, hide rest of them
+        $.each($("#tbl_reporte tbody tr"), function() {
+        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+        $(this).hide();
+        else
+        $(this).show();
+        });
+        });
+          });
+     </script>
+     <script>
+
+        $('#reservationdate1').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+	$('#reservationdate2').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+    </script>
+</body>
+</html>

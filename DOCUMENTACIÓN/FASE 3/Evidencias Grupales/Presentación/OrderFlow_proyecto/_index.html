@@ -1,0 +1,109 @@
+
+<html>
+<head>
+      <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portal RRHH Monarch</title>
+    <link rel="shortcut icon" href="img/monarch.ico">
+	 <!-- Google Font: Source Sans Pro -->
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+	  <!-- Font Awesome -->
+	  
+	  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+	  <!-- icheck bootstrap -->
+	  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	  <!-- Theme style -->
+	  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body >
+
+<div class="login-dark">
+        <form method="post">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+            <div class="form-group"><input type="text" id="txt-user" name="txt-user" class="form-control" placeholder="Usuario"></div>
+            <div class="form-group"><input type="password" id="txt-pwd" name="txt-pwd" class="form-control" placeholder="Password"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a href="#" class="forgot">Forgot your email or password?</a></form>
+    
+	
+		<div id="resultado">
+      
+      </div>
+
+	</div>
+
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<link rel="stylesheet" href="css/signin2.css" />
+</body>
+
+  
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $("#ingresar").click(validata);
+      });
+      
+      function validata(e) {
+          e.preventDefault();
+          var user = $("#txt-user").val().trim();
+          var pwd = $("#txt-pwd").val().trim();
+          if (user==='' || pwd==='') {
+              
+             swal("Debe rellenar todos los campos!");
+              //alert("Debe rellenar todos los campos!");
+          }else{
+              exec_ajax();
+														
+          }
+      }
+      function exec_ajax() {
+          var data = $('form').serialize()+"&login=login";
+          //alert(data);
+          $.ajax({
+              url:'index.php',
+              type: 'GET',
+              dataType: 'text',
+              //contentType: false,
+              data:data,
+              processData: false,
+              //cache: false
+              beforeSend:function(){
+               
+                $("#resultado").html('<img src="img/053.gif"><h4>Cargando...</h4></img>');
+																//alert("cargando");
+              },
+              success:function(data_success){
+															//alert(data_success);
+                if (data_success=="USER_VALIDO") {
+                  <!-- alert("Go to principal page!"); -->
+                  $("#resultado").empty();
+																	$("body").load("principal.php");
+																	
+																		window.location.href = 'principal.php';
+                }else{
+                  $("#resultado").html("<div class='alert alert-danger' role='alert'>"+data_success+"</div>");
+                  
+                }
+              },
+              error:function(rs_error){
+                $("#resultado").html("<div class='alert alert-danger' role='alert'>"+rs_error+"</div>");
+              }
+          }); 
+      }
+      
+ </script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+
+<html>
+<head>
+      <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portal Final</title>
+    <link rel="shortcut icon" href="img/monarch.ico">
+	 <!-- Google Font: Source Sans Pro -->
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+	  <!-- Font Awesome -->
+	  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+	  <!-- icheck bootstrap -->
+	  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	  <!-- Theme style -->
+	  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+	  
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <!-- /.login-logo -->
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="#" class="h1"><b>Proyecto Final<br></b></a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Inicio de Sesion</p>
+
+      <form  method="post">
+        <div class="input-group mb-3">
+          <!-- <input type="email" class="form-control" placeholder="Email"> -->
+		   <input type="text" id="txt-user" name="txt-user" class="form-control" placeholder="Usuario" autofocus>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" id="txt-pwd" name="txt-pwd" class="form-control" placeholder="Contraseña">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Recuerdame
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button class="btn btn-primary btn-block" type="submit" id="ingresar">Ingresar</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+	<div class="card-header text-center">
+     <img src="img/monarch_esencial-remove.png"></img>
+         
+          <!--<h1><strong>PORTAL PROMER</strong></h1>-->
+          <!--<h3 class="form-signin-heading"><strong>Administrador de Promotoras Promer</strong></h3>-->
+          
+      
+    </div>
+
+      <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">Register a new membership</a>
+      </p>
+	  <div id="resultado">
+      
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<link rel="stylesheet" href="css/signin.css" />
+</body>
+
+  
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $("#ingresar").click(validata);
+      });
+      
+      function validata(e) {
+          e.preventDefault();
+          var user = $("#txt-user").val().trim();
+          var pwd = $("#txt-pwd").val().trim();
+          if (user==='' || pwd==='') {
+              
+             swal("Debe rellenar todos los campos!");
+              //alert("Debe rellenar todos los campos!");
+          }else{
+              exec_ajax();
+														
+          }
+      }
+      function exec_ajax() {
+          var data = $('form').serialize()+"&login=login";
+          //alert(data);
+          $.ajax({
+              url:'index.php',
+              type: 'GET',
+              dataType: 'text',
+              //contentType: false,
+              data:data,
+              processData: false,
+              //cache: false
+              beforeSend:function(){
+               
+                $("#resultado").html('<img src="img/053.gif"><h4>Cargando...</h4></img>');
+																//alert("cargando");
+              },
+              success:function(data_success){
+															//alert(data_success);
+                if (data_success=="USER_VALIDO") {
+                  <!-- alert("Go to principal page!"); -->
+                  $("#resultado").empty();
+																	$("body").load("principal.php");
+																	
+																		window.location.href = 'principal.php';
+                }else{
+                  $("#resultado").html("<div class='alert alert-danger' role='alert'>"+data_success+"</div>");
+                  
+                }
+              },
+              error:function(rs_error){
+                $("#resultado").html("<div class='alert alert-danger' role='alert'>"+rs_error+"</div>");
+              }
+          }); 
+      }
+      
+ </script>
+
+</body>
+</html>

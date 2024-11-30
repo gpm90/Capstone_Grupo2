@@ -1,0 +1,166 @@
+<html>
+   <head>
+      <title>Page Title</title>
+      <script src="js/planilla_bd.js" type="text/javascript"></script>
+      <script src="https://unpkg.com/sweetalert2@9.5.3/dist/sweetalert2.all.min.js"></script>
+      <meta http-equiv="Expires" content="0">
+      <meta http-equiv="Last-Modified" content="0">
+      <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+      <meta http-equiv="Pragma" content="no-cache">
+   </head>
+   <body>
+      <div class="card-header">
+         <!--<h2 class="card-title"><strong>Olas Cargadas</strong></h2>-->
+         <div class="row">
+            <div class="col-sm-6">
+               <p  class="text-muted mb-1"><a href='principal.php'>Principal</a> / Base de Datos</p>
+               <!--<p class="text-muted mb-0">Escritorio de Negocio</p>-->
+            </div>
+         </div>
+      </div>
+      <br>
+      <form id="frm_pventa">
+         <!-- Fila 1 -->
+         <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+            <!--<div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">-->
+            <div class="card card-Lightblue">
+               <div class="card-header">
+                  <h3 class="card-title">Detalles Base de Datos</h3>
+               </div>
+               <div class="card-body">
+                  <span class='pull-left fs-14'><strong>FORMULARIO DE INGRESO</strong></span><br>
+                  <hr class='hr_titulo'>
+                  <div class="row">
+                     <label class="col-sm-1 form-check-label text-info">id:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="bd_id" name="bd_id" readonly/>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <label class="col-sm-1 form-check-label text-info">Nombre:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="nombre" name="nombre"/>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">Tipo BD:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <select class="form-control input-sm" id="tipo" name="tipo">
+                              <option value="">-- SELECCIONES TIPO BD --</option>
+                              <option value="MYSQL">MYSQL</option>
+                              <option value="ORACLE">ORACLE</option>
+                              <option value="POSTGRESQL">POSTGRESQL</option>
+                              <option value="SQLSERVER">SQLSERVER</option>
+                           </select>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">Host:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" data-inputmask="'alias': 'ip'" data-mask  id="host" name="host"/>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <label class="col-sm-1 form-check-label text-info">Usuario:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="usuario" name="usuario"/>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">Contraseña:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info"  id="clave" name="clave"/>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">Puerto:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="puerto" name="puerto"/>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <label class="col-sm-1 form-check-label text-info">SID:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <input type="text" class="form-control input-sm border border-info" id="sid" name="sid"/>
+                        </div>
+                     </div>
+                     <label class="col-sm-1 form-check-label text-info">Estado:</label>
+                     <div class="col-sm-3">
+                        <div class="input-group">
+                           <select class="form-control input-sm border-info" id="estado" name="estado">
+                              <option value="">-- SELECCIONES ESTADO --</option>
+                              <option value="1">ACTIVO</option>
+                              <option value="2">INACTIVO</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <button type="button" id="guardar_cambios" class="btn btn-primary">Guardar Cambios</button>
+                  <button type="button" id="limpiar_datos" class="btn btn-light">Limpiar</button>
+               </div>
+            </div>
+         </div>
+         <br>
+         <div id="mensajes"></div>
+         <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+            <div class="card card-Lightblue">
+               <div class="card-header">
+                  <h3 class="card-title">Listado de Base de Datos</h3>
+                  <br>
+               </div>
+               <div class='input-group'>
+                  <span class='input-group-addon'><i class="glyphicon glyphicon-search"></i></span>
+                  <input id='search' name='search' type='text' class='form-control input-sm' placeholder='Ingrese dato a buscar...' style="width: 322px;">
+               </div>
+               <div class="card-body table-responsive p-1">
+                  <table class='table table-bordered table-striped table-sm dataTable dtr-inline' id="tbl_bd" >
+                     <thead>
+                        <tr>
+                           <th>#</th>
+                           <th>Nombre</th>
+                           <th>Tipo BD</th>
+                           <th>Host</th>
+                           <th>Usuario</th>
+                           <th>Pass</th>
+                           <th>Puerto</th>
+                           <th>SID</th>
+                           <th>Estado</th>
+                           <th>Accion</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <!--AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </form>
+      <script>
+         $(document).ready(function(){
+                $("#search").keyup(function(){
+                    _this = this;
+                    // Show only matching TR, hide rest of them
+                    $.each($("#tbl_bd tbody tr"), function() {
+                        if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                            $(this).hide();
+                        else
+                        $(this).show();
+                    });
+                });
+           });
+         
+      </script>
+   </body>
+</html>

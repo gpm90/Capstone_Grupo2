@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="js/usuarios.js" type="text/javascript"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <form id="frm_usuario">
+        <!-- <legend>Administración de Usuarios</legend> -->
+		<div class="card-header">
+                <h2 class="card-title"><strong>Administración de Usuarios</strong></h2>
+        </div><br>
+        <!-- Fila 1 -->
+		<div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+            <div class="row">
+                <label class="col-sm-1 control-label">Nombre usuario</label>
+				<div class="col-sm-2">
+						<div class="input-group">
+							<input type="text" class="form-control requerid" id="txt_user_name" name="txt_user_name" placeholder="Ingrese Ususario..." maxlength="15"/>
+						</div>
+				</div>
+				<label class="col-sm-1 control-label">Nombre</label>
+				<div class="col-sm-2">
+						<div class="input-group">
+							<input type="text" class="form-control requerid" id="txt_name" name="txt_name" placeholder="Ingrese Nombre" maxlength="30"/>
+						</div>
+                </div>
+				<label class="col-sm-1 control-label">Correo</label>
+                <div class="col-sm-3">
+						<div class="input-group">
+							<input type="email" class="form-control requerid" id="txt_correo" name="txt_correo" placeholder="Ingrese correo" maxlength="40"/>
+						</div>
+                </div>
+                
+                
+            </div>
+			<div class="row">
+				<label class="col-sm-1 control-label">Contraseña</label>
+                <div class="col-sm-2">
+						<div class="input-group">
+							<input type="password" class="form-control requerid" id="txt_pass" name="txt_pass" placeholder="********" maxlength="15"/>
+						</div>
+                </div>
+                
+				<label class="col-sm-1 control-label">Repita Contraseña</label>
+                <div class="col-sm-2">
+						<div class="input-group">
+							<input type="password" class="form-control requerid" id="txt_pass_conf" name="txt_pass_conf" placeholder="********" maxlength="15"/>
+						</div>
+                </div>
+			</div>
+			
+			<br>
+			<!-- BOTONES -->
+			<div class="div_button">
+				<!--<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>-->
+				<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>
+				<button type="button" class="btn btn-primary" id="btn_guardar">Guardar Usuario</button>
+			</div>
+        
+            
+        </div><br>
+        
+            
+        <div id="mensajes">
+                
+        </div>
+		<div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong>Usuarios Registrados</strong></h3>
+             </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+				<table class='table table-bordered table-striped table-sm' id="tbl_usuario" >		
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Usuario</th>
+						<th>Nombre</th>
+						<!--<th>Estado</th>-->
+						<th>Editar</th>
+						<th>Permisos</th>
+						<th>Borrar</th>
+						<!-- <th>Acciones</th> -->
+					</tr>
+				</thead>
+				<tbody>
+				<!--AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+				</tbody>
+				</table>
+			</div>
+		</div>
+		
+		
+
+		<div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong>Asignación de permisos para : <label id="user"></label></strong></h3>
+             </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+				<table class='table table-bordered table-striped table-sm' id="tbl_permiso" >		
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Código Menú</th>
+						<th>Código Item</th>
+						<th>Nombre</th>
+						<th>Acceso</th>
+						<!--<th>Permisos</th>-->
+						<!--<th>Borrar</th>-->
+					</tr>
+				</thead>
+				<tbody>
+				<!--AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+				</tbody>
+				</table><br>
+				<div class="div_button">
+					<!--<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>-->
+					<button type="button" class="btn btn-primary" id="btn_guardar_permiso" user="">Guardar Permisos</button>
+					<button type="button" class="btn btn-danger" id="btn_cancelar">Cancelar</button>
+				</div>
+			</div>
+		</div>
+        
+     
+    </form>
+    
+</body>
+</html>

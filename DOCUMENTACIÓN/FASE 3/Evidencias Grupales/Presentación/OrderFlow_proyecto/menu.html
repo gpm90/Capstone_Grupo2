@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="js/menu.js" type="text/javascript"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+	 <div class="card-header">
+                <h2 class="card-title"><strong>Administración de Menú</strong></h2>
+        </div>
+    <form id="frm_menu">
+        <!-- Fila 1 -->
+       
+        <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+            <div class="row">
+				<div class="col-2">
+					<label for="exampleInputEmail1">Nivel</label>
+						<div class="input-group">
+							<select class="form-control input-sm required" id="cmb_nivel" name="cmb_nivel">
+								<option value="">.............</option>
+								<option value="1">1° Nivel</option>
+								<option value="2">2° Nivel</option>
+								<option value="3">3° Nivel</option>
+							</select>
+						</div>
+					</div>
+				<div class="col-2">
+					<label for="exampleInputEmail1">Nivel Padre</label>
+						<div class="input-group">
+							<select class="form-control input-sm" id="cmb_nivel_padre" name="cmb_nivel_padre">
+								<option value="">.............</option>
+								
+							</select>
+						</div>
+                </div>
+				<div class="col-2">
+					<label for="txt_nombre">Nombre</label>
+						<div class="input-group">
+							<input type="text" class="form-control col-xs-4 required" id="txt_nombre" name="txt_nombre" />
+						</div>
+				</div>
+                
+                <div class="col-2">
+					<label for="txt_url">Ruta</label>
+						<div class="input-group">
+							<input type="text" class="form-control col-xs-4 required" id="txt_url" name="txt_url" />
+						</div>
+				</div>
+                
+            </div><br>
+				<!-- BOTONES -->
+				<div class="div_button">
+					<!--<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>-->
+					<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>
+					<button type="button" class="btn btn-primary" id="btn_agregar">Agregar Menu</button>
+				</div>
+        </div>
+        <!-- Fila 2 -->
+        <!--<div class="row">
+            <div class="form-group">
+                    
+            </div>
+        </div>-->
+            
+        <hr>
+        <!-- TABLA PARA AGREGAR HABERES-->
+		<div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong>Agregar Menu</strong></h3>
+             </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+				<table class='table table-bordered table-striped table-sm' id="tbl_menu" >		
+					<thead>
+						<tr>
+							<th>Codigo</th>
+							<th>Nivel</th>
+							<th>Orden</th>
+							<th>Codigo Item</th>
+							<th>Nombre</th>
+							<th>URL</th>
+							<th>Borrar</th>
+							<!--<th>Editar</th>-->
+						</tr>
+					</thead>
+					<tbody>
+					<!--AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+        <div class="div_button">
+            <!--<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>-->
+            <button type="button" class="btn btn-primary" id="btn_guardar">Guardar Menu</button>
+            <!--<button type="button" class="btn btn-info" id="btn_update_menu" trid="" fila="">Actualiza Menu</button>-->
+        </div>
+        <div id="mensajes">
+                
+        </div>
+        <!--  -->
+		<div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong>Agregar Menu</strong></h3>
+             </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+				<table class='table table-bordered table-striped table-sm' id="tbl_itemsMenu" >		
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Codigo</th>
+							<th>Nivel</th>
+							<th>Orden</th>
+							<th>Codigo Item</th>
+							<th>Nombre</th>
+							<th>URL</th>                    
+							<!-- <th>Editar</th> -->
+							<th>Borrar</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+     
+    </form>
+    <!-- Small modal / MODAL ELIMINACION DE ASIGNACIONES(FILAS)-->
+    <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="modal-delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Confirma eliminación..</h4>
+                </div>
+                <div class="modal-body" id="modal-body">
+                   
+                </div>
+                <div id="modal-mensajes">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="si-del">Si</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="no-del">No</button>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
