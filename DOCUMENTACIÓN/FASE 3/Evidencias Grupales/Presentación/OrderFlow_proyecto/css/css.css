@@ -1,0 +1,237 @@
+/*div#form{
+    width: 30%;
+}
+*/
+label{
+    font-size: 0.7em;
+
+}
+.obligatorio,.obligatorio:after{
+    font-family: arial;
+    color: red;
+    content: "";
+}
+/*.success:after{
+    content: " Rut validado!";
+}*/
+.select_movimiento{
+    right: 0;
+    
+    margin-right: 10px;
+    
+}
+
+
+
+
+
+#tabla_mail2 {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-color:#020202;
+}
+.tabla_mail {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.div_button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.fontsize{
+    font-size: 0.8em;
+}
+/*.datagrid table {
+    border-collapse: collapse;
+    text-align: left; width: 100%;
+    }
+.datagrid {
+    font: normal 12px/150% Arial, Helvetica, sans-serif;
+    background: #fff;
+    overflow: hidden;
+    border: 1px solid #006699;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    }
+.datagrid table td, .datagrid table th {
+    padding: 3px 10px;
+    }
+.datagrid table thead th {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+    background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+    background-color:#006699;
+    color:#FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    }
+.datagrid table thead th:first-child {
+    border: none;
+    }
+.datagrid table tbody td {
+    color: #00557F;
+    border-left: 1px solid #E1EEF4;
+    font-size: 12px;
+    font-weight: normal;
+    }
+.datagrid table tbody .alt td {
+    background: #C1CDF4;
+    color: #00557F;
+    }
+.datagrid table tbody td:first-child {
+    border-left: none;
+    }
+.datagrid table tbody tr:last-child td {
+    border-bottom: none;
+    }*/
+/* CSS Tabs jQuery 
+ul.tabs{width:100%;max-width:1080px;margin:0 auto;padding:0;list-style:none;height:32px;font-size:0;line-height:0;}
+ul.tabs li{display:inline-block;width:33.33%;margin:0;padding:0;height:32px;line-height:32px;background:#333;overflow:hidden;position:relative;border:1px solid #333;border-bottom:0;box-sizing:border-box;border-radius:7px 7px 0 0;}
+ul.tabs li a{display:block;padding:0 5px;text-decoration:none;color:#fff;font-size:14px;text-align:center;border:1px solid #CCC;box-sizing:border-box;border-radius:7px 7px 0 0;}
+ul.tabs li a:hover{background:#666;}
+ul.tabs li.activa,ul.tabs li.activa a,ul.tabs li.activa a:hover{color:#333;font-weight:700;background:#ccc;}
+.contenedor_tab{width:100%;max-width:1080px;margin:-1px auto 0;padding:0;background:#ccc;border:1px solid #333;border-top:0;box-sizing:border-box;border-radius:0 0 7px 7px;}
+.contenido_tab{padding:10px;font-size:14px;box-sizing:border-box;}*/
+/* CSS Tabs jQuery
+.contenedor_tab{
+    float:left;
+    clear:both;
+    width:1080px;
+    padding:0px;
+    margin:0 auto;
+    display:block;
+    background:#ffffff;
+    border:1px solid #aaaaaa;
+    -moz-border-radius:0 0 7px 7px;
+    -webkit-border-radius:0 0 7pc 7px;
+    border-radius: 0 0 7px 7px;
+    }
+    
+ul.tabs{
+    float:left;
+    margin:0;
+    padding:0;
+    list-style:none;
+    height:32px;
+    width:600px;
+    margin-top:-7px;
+    }
+ul.tabs li{
+    float:left;
+    margin:0;
+    padding:0;
+    height:31px;
+    line-height:31px;
+    border:1px solid #000000;
+    margin-bottom:-1px;
+    background:#acacac;
+    overflow:hidden;
+    position:relative;
+    border:1px solid #aaaaaa;
+    -moz-border-radius:7px 7px 0 0;
+    -webkit-border-radius:7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+    }
+ul.tabs li a{
+    text-decoration:none;
+    color:#fff;
+    display:block;
+    font-size:13px;
+    padding:0 20px;
+    border:1px solid #fff;
+   
+    }
+ul.tabs li a:hover{
+    background:#666;
+    }
+ul.tabs li.activa,ul.tabs li.activa a,ul.tabs li.activa a:hover {
+    color:#333;
+    font-weight:bold;
+    background:#ccc;
+    border-bottom:1px solid #aaaaaa;
+    }
+.contenido_tab{
+    padding:10px;
+    /*font-size:1.2em;
+    width:1080px;
+    }
+.contenido_tab img{
+    margin:0 20px 20px 0;
+    border:1px solid #ddd;
+    padding:5px;
+ } */
+/*    .contenedor{*/
+/*    width: 1080px;*/
+/*    margin: auto;*/
+/*    /*background: black;/*/
+/*    color: bisque;*/
+/*    padding: 20px 15px 50px 50px;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.8);*/
+/*}*/
+ 
+.tabs { /* es el rectángulo contenedor */
+margin: 0 auto;
+min-height: 500px;
+position: relative;
+width: 1080px;
+}
+.tab { /* cada una de las pestañas */
+float: left;
+}
+.tab label { /* la parte superior con el título de la pestaña */
+background-color: #456;
+border-radius: 5px 5px 0 0;
+box-shadow: -3px 3px 2px #678 inset;
+color: #DDD;
+cursor: pointer;
+left: 0;
+margin-right: 1px;
+padding: 5px 15px;
+position: relative;
+text-shadow: 1px 1px #000;
+}
+/* el control input sólo lo necesitamos para que las pestañas permanezcan abiertas así que lo ocultamos */
+.tab [type=radio] { display: none; }
+
+/* el contenido de las pestañas */
+.content {
+background-color: #d2d2d2;
+bottom: 0;
+left: 0;
+/*overflow: hidden;*/
+padding: 20px;
+position: absolute;
+right: 0;
+top: 23px;
+border: 1px solid #ddd;
+}
+/* y un poco de animación */
+.content > * {
+opacity: 0;
+
+-moz-transform: translateX(-100%);
+-webkit-transform: translateX(-100%);
+-o-transform: translateX(-100%);
+
+-moz-transition: all 0.6s ease;
+-webkit-transition: all 0.6s ease;
+-o-transition: all 0.6s ease;
+}
+
+/* controlamos la pestaña activa */
+[type="radio"]:checked ~ label {
+background-color: #d2d2d2;
+box-shadow: 0 3px 2px #89A inset;
+color: #FFF;
+z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content { z-index: 1; }
+[type=radio]:checked ~ label ~ .content > * {
+opacity: 1;
+-moz-transform: translateX(0);
+-webkit-transform: translateX(0);
+-o-transform: translateX(0);
+-ms-transform: translateX(0);
+}

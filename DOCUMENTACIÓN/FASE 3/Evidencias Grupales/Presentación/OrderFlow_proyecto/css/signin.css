@@ -1,0 +1,52 @@
+body {
+  background-size: 100%; /* Ajusta el tamaño de la imagen de fondo */
+   
+   /* background-position: center center;  Centra la imagen en el fondo */
+    /* background-attachment: fixed; Hace que la imagen de fondo permanezca fija al hacer scroll */
+  background-image: url('../img/fondo/fondo_1.jpg'), url('../img/fondo/fondo_2.jpg'), url('../img/fondo/fondo_3.jpg');
+}
+
+.form-signin {
+
+
+
+    
+}
+.h1-login{
+    
+  
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.dv_logo{
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
