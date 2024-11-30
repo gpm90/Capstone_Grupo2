@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page Title</title>
+    <script src="distribuciones/desarrollo/subida_ripley.js" type="text/javascript"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+	
+
+	<div class="card-header">
+         <h2 class="card-title form-check-label">Distribucion RIPLEY</h2>
+      </div><br>
+      
+       <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+       		<div class="card card-Olive">
+				<div class="card-header">
+				   <h3 class="card-title">Ingreso de Planilla de Distribucion</h3>
+				</div>
+				<div class="card-body">
+				   <!--<span class='pull-left fs-14'><strong>FORMULARIO DE INGRESO</strong></span><br>
+				   <hr class='hr_titulo'>-->
+					<form id="form-subida-ripley">  
+						<div class="row">
+							<label for="file_cventas">Cargar Planilla</label>
+							<div class="input-group">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="file_cventas">
+									<label class="custom-file-label" for="file_cventas">Subida</label>
+								</div>
+								<div class="input-group-append">
+									<span class="input-group-text">Upload</span>
+								</div>
+							</div>
+						</div><br>
+					</form>
+
+					<div class="col-xs-4">
+						<button type="button" class="btn btn-default" id="btn_limpiar">Limpiar</button>
+						<button type="button" class="btn btn-primary" id="btn_guardar">Subir Planilla</button>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div id="mensajes"></div>
+		
+        <div class="card-body" style="padding-bottom: 5px;padding-top: 5px;">
+            <div class="card card-Lightblue">
+                <div class="card-header">
+                    <h2 class="card-title"><strong>Panillas Subidas</strong></h2>
+                </div>
+				<div class="card-body table-responsive p-0">
+					<div class="card-body">
+					<table id="tbl_planillas_ripley" class='table table-bordered table-striped table-sm dataTable dtr-inline'>			
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Archivo</th>                    
+								<th>OC</th>                    
+								<th>Fec. OC</th>                    
+								<th>Locales</th>
+								<th>Unidades</th>
+								<th>Articulos</th>
+								<th>Estado</th>
+								<th>Valida Inner</th>
+								<th>Estado WMS</th>
+								<th>Digitar</th>
+								<th>Revertir</th>
+								<th>Borrar</th>
+								<th>Enviar WMS</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						<!--AQUI SE MUESTRAN LOS PEDIDOS PROCESADOS -->
+						</tbody>
+					</table>    
+				</div>
+			</div>
+		</div>
+	</div>
+     
+    
+
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+
+</body>
+</html>
